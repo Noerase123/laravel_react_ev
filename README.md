@@ -30,7 +30,7 @@ sail up
 
 ======================================================
 
-Instructions for React APP
+## Instructions for React APP
 
 Step #1: go to the backend project
 
