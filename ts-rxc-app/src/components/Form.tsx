@@ -23,12 +23,6 @@ type TCallback = {
 
 export function CreateForm({ cb }: TCallback) {
 
-  const [payload, setPayload] = useState({
-    fullName: '',
-    email: '',
-    role: ''
-  });
-
   const { control, handleSubmit } = useForm({
     mode: 'all',
     resolver: zodResolver(formSchema),
@@ -43,13 +37,6 @@ export function CreateForm({ cb }: TCallback) {
     await axios.post('http://localhost/api/accounts', payload, { headers: {} });
   }
 
-  const handleChange = (field: string) => (event: any) => {
-    setPayload({
-      ...payload,
-      [field]: event.target.value
-    });
-  }
-
   const onSubmit = handleSubmit(data => {
     console.log('data', data);
     submitAPI(data);
@@ -60,9 +47,9 @@ export function CreateForm({ cb }: TCallback) {
     <div className='flex flex-row justify-center'>
       <div className='w-[500px] bg-slate-200 border rounded-xl'>
         <form className='p-10' onSubmit={onSubmit}>
-          <TextField control={control} name='fullName' label='Full Name' placeholder='Enter your full name' onChange={handleChange('fullName')} />
-          <TextField control={control} name='email' label='Email Address' type='email' placeholder='Enter your email address' onChange={handleChange('email')} />
-          <SelectField control={control} name='role' label='Role' placeholder='Enter your Role' onChange={handleChange('role')} />
+          <TextField control={control} name='fullName' label='Full Name' placeholder='Enter your full name'/>
+          <TextField control={control} name='email' label='Email Address' type='email' placeholder='Enter your email address' />
+          <SelectField control={control} name='role' label='Role' placeholder='Enter your Role' />
           <SubmitButton label='Submit' onClick={onSubmit} />
         </form>
       </div>
