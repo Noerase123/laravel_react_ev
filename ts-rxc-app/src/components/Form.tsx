@@ -34,13 +34,18 @@ export function CreateForm({ cb }: TCallback) {
   })
 
   const submitAPI = async (payload: any) => {
-    await axios.post('http://localhost/api/accounts', payload, { headers: {} });
+    try {
+      await axios.post('http://localhost/api/accounts', payload, { headers: {} });
+      cb?.();
+    } catch (error) {
+      console.log(error);
+      alert('Network error');
+    }
   }
 
   const onSubmit = handleSubmit(data => {
     console.log('data', data);
     submitAPI(data);
-    cb?.();
   })
 
   return (
