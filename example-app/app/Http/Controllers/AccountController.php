@@ -13,8 +13,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        // return Accounts::paginate(5);
-        return Accounts::all();
+        return Accounts::paginate(20);
     }
 
     /**
