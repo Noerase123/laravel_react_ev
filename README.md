@@ -22,7 +22,7 @@ docker compose up or sail up
 
 Step #4: duplicate .env-example and rename .env file:
 
-Step #5: run the api with command:
+Step #5: restart docker with command:
 
 ```
 sail restart
@@ -44,8 +44,37 @@ Step #2: install dependencies:
 npm install
 ```
 
-Step #3: open your :
+Step #3: run your project:
 
 ```
 npm start
+```
+
+
+======================================================
+
+## If you encountered an issue related on db connection:
+
+Find your mysql host by running this command:
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <docker container ID>
+```
+
+Get the docker container ID of mysql by running this command:
+
+```
+docker container ls
+```
+
+And then finally use the IP that came from finding your mysql host and put it on the .env file:
+
+```
+DB_HOST=<172.0.0.3>
+```
+
+Then restart sail/docker
+
+```
+sail restart
 ```
