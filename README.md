@@ -17,7 +17,7 @@ composer install
 Step #3: run your docker and run command:
 
 ```
-docker compose up
+docker compose up or sail up
 ```
 
 Step #4: duplicate .env-example and rename .env file:
@@ -25,7 +25,7 @@ Step #4: duplicate .env-example and rename .env file:
 Step #5: run the api with command:
 
 ```
-sail up
+sail restart
 ```
 
 ======================================================
