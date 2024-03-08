@@ -70,7 +70,7 @@ docker container ls
 And then finally use the IP that came from finding your mysql host and put it on the .env file:
 
 ```
-DB_HOST=<172.0.0.3>
+DB_HOST=<host from docker>
 ```
 
 Then restart sail/docker
